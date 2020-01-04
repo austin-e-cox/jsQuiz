@@ -39,7 +39,7 @@ Add the application to your portfolio.
     </div>
     
       <div class="navbar-nav ml-auto justify-content-end mr20">
-        Time: 
+        <div style="padding-right:4px;">Time:</div>
         <div id="timeRemaining">0</div>
       </div>
       
@@ -54,6 +54,7 @@ Add the application to your portfolio.
     </button>
   </div>
   
+  <!-- start quiz -->
   <!-- Modal -->
   <div class="modal fade" id="startQuizModal" tabindex="-1" role="dialog" aria-labelledby="startQuizModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -92,8 +93,36 @@ Add the application to your portfolio.
     </div>
   </div>
 
+  <!-- score screen -->
+  <!-- Modal -->
+  <div class="modal fade" id="nameEntryScreenModal" tabindex="-1" role="dialog" aria-labelledby="nameEntryModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="nameEntryModalModalTitle"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Name:</label>
+              <input type="username" class="form-control" id="username" placeholder="AEC">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="nameEntry">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="questionBox"></div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
