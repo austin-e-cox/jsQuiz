@@ -29,20 +29,37 @@ Add the application to your portfolio.
     <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
+  <!-- header (link to highscores and timer counter) -->
+  <!-- Nav bar -->
+  <nav class="navbar navbar-expand-md row max960 autoMarginlr">
+
+    <!-- Name -->
+    <div class="navbar-brand column ml20" data-toggle="modal" data-target="#highScoresModal">
+      <a target="_blank">view highscores</a>
+    </div>
+    
+      <div class="navbar-nav ml-auto justify-content-end mr20">
+        Time: 
+        <div id="timeRemaining">0</div>
+      </div>
+      
+  </nav>
+
+
   <!-- Start Quiz modal -->
   <div class="justify-content-center" id="primaryDiv">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary centerItem" data-toggle="modal" data-target="#exampleModalCenter" id="modalStartButton">
+    <button type="button" class="btn btn-primary centerItem" data-toggle="modal" data-target="#startQuizModal" id="modalStartButton">
       Start Quiz
     </button>
   </div>
   
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="startQuizModal" tabindex="-1" role="dialog" aria-labelledby="startQuizModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Javascript Quiz (Current max score: None)</h5>
+          <h5 class="modal-title" id="startQuizModalModalTitle">Javascript Quiz (Current max score: None)</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -52,12 +69,30 @@ Add the application to your portfolio.
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="startQuiz">Begin Quiz</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="startQuiz">Begin Quiz</button>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- High scores modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="highScoresModal" tabindex="-1" role="dialog" aria-labelledby="highScoresModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="highScoresModalLongTitle">High Scores</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="highScores">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="questionBox"></div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
