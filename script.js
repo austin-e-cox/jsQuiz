@@ -13,6 +13,11 @@ var questions = [
     title: "JQuery is another name for Javascript.",
     choices: ["True","False"],
     answer: "False"
+  },
+  {
+    title: "Javascript enables interactive web pages.",
+    choices: ["True","False"],
+    answer: "True"
   }
   ///etc.
 ];
@@ -135,7 +140,7 @@ function setChoices(mainElemJ,choices){
   // add radio buttons to choices div
   // note jQuery will auto close the tag, so make a string and append it instead for input since we dont want to auto close it
     for (choice of choices){
-      curElem = '<input type="radio" name="choice" class="choice" value="'+choice+'">'+choice
+      curElem = '<input type="radio" name="choice" class="choice" value="'+choice+'">'+" "+choice
       //curElem = $("<input>");
       //curElem.attr("type","radio");
       //curElem.attr("name","choice");
