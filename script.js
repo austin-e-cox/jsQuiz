@@ -9,6 +9,11 @@ var questions = [
     choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
     answer: "parentheses"
   },
+  {
+    title: "JQuery is another name for Javascript.",
+    choices: ["True","False"],
+    answer: "False"
+  }
   ///etc.
 ];
 
@@ -25,10 +30,11 @@ var response;
 // replace the score in the modal by looking up the local storage
 function replaceHighScore() {
   let modalTitleElem = document.querySelector("#startQuizModalModalTitle");
-  let highscores = $("#highscores");
-  let highScore = localStorage.getItem("highScore");
+  //let highscores = $("#highscores");
+  //let highScore = localStorage.getItem("highScore");
+  let highScore = getMaxScore();
   if (highScore){
-    modalTitleElem.textContent = modalTitleElem.textContent.replace("None",highScore);
+    modalTitleElem.textContent = "Javascript Quiz (Current max score: "+highScore+")";
   }
 }
 
@@ -57,6 +63,7 @@ $("#nameEntry").on("click", function(){
   userName = $("#username").val();
   storeScore();
   updateHighScores();
+  replaceHighScore();
 })
 
 function runQuiz(){
@@ -68,7 +75,11 @@ function runQuiz(){
   startTimer();
   
   // build the quiz skeleton
-  let qb = $("#questionBox");
+  let pd = $("#primaryDiv");
+  qb = $("<div>");
+  qb.attr("class","centerItem");
+  pd.append(qb);
+  //qb.attr("class","centerItem")
   
   // title div
   let t = $("<div>");
@@ -78,6 +89,7 @@ function runQuiz(){
   // question div
   let c = $("<div>");
   c.attr("id","choices");
+  c.css("padding","0px 10px 10px 10px");
   qb.append(c);
   
   // submit button
@@ -87,7 +99,7 @@ function runQuiz(){
   s.text("submit")
   s.on("click",checkAnswer);
   qb.append(s);
-
+  qb.append("<br>");
   let r = $("<div>");
   r.attr("id","response");
   qb.append(r);
@@ -166,7 +178,7 @@ function wrapUpQuiz(){
   quizScore = remainingTime;
   // stop the timer
   clearTimer();
-  let qb = $("#questionBox");
+  let qb = $("#primaryDiv");
   qb.empty();
   if (quizScore){
     // add enter name field
@@ -201,8 +213,11 @@ function storeScore(){
     }
     localStorage.setItem("scores",JSON.stringify(scores));
   }
-  else
-    localStorage.setItem("scores",JSON.stringify({quizScore:userName}));
+  else{
+    let a = {};
+    a[quizScore] = userName;
+    localStorage.setItem("scores",JSON.stringify(a));
+  }
 }
 
 function getScores(){
@@ -216,6 +231,18 @@ function getScores(){
     scores = {};
   return scores;
 }
+
+function getMaxScore(){
+  scores = localStorage.getItem("scores");
+  // if we have scores already
+  if (scores){
+    // if we already have 10 scores
+    scores = JSON.parse(scores);
+    return Object.keys(scores).sort().reverse()[0];
+  }
+  return NaN;
+}
+
 
 function updateHighScores(){
   // display current score
