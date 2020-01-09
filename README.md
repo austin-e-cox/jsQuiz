@@ -10,7 +10,7 @@ You may click the hiscores in the to-left to see the list of highscores. If ther
 
 ## Access
 Repo: https://github.com/austin-e-cox/jsQuiz
+
 Active page: https://austin-e-cox.github.io/jsQuiz/
 
 ![Page preview](/js_quiz_preview.png?raw=true "Page Preview")
-description, screenshot, and a link to the deployed application
